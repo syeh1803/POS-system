@@ -31,7 +31,7 @@ Drink.prototype.price = function () {
     case "Green Tea":
       return 30;
     case "Bubble Milk Tea":
-    case "Lemon Green Tea":
+    case "Lemon Green":
       return 50;
     case "Black Tea Latte":
     case "Matcha Latte":
@@ -41,24 +41,48 @@ Drink.prototype.price = function () {
   }
 };
 
+const orderLists = document.querySelector("[data-order-lists]");
+AlphaPos.prototype.addDrink = function (drink) {
+  let orderListsCard = `
+                <div class="card mb-3">
+                    <div class="card-body pt-3 pr-3">
+                        <!-- delete drink icon -->
+                        <div class="text-right">
+                            <span data-alpha-pos="delete-drink">x</span>
+                        </div>
+                        <!-- delete drink icon -->
+                        <h6 class="card-title mb-1">${drink.name}</h6>
+                        <div class="card-text">${drink.sugar}</div>
+                        <div class="card-text">${drink.ice}</div>
+                    </div>
+                    <div class="card-footer text-right py-2">
+                        <div class="card-text text-muted">
+                            $<span data-drink-price>30</span>
+                        </div>
+                    </div>
+                </div>
+`;
+orderLists.insertAdjacentHTML("afterbegin", orderListsCard);
+};
+
+
 const addDrinkButton = document.querySelector('[data-alpha-pos="add-drink"]');
 addDrinkButton.addEventListener("click", function () {
   // 1. 取得選擇的飲料名稱, 冰塊, 甜度
   // 利用input裡的checked是否為true，來檢查店員是否選到該品項
-  const drinkName = alphaPos.getCheckedValue('drink')
-  const ice = alphaPos.getCheckedValue('ice')
-  const sugar = alphaPos.getCheckedValue('sugar')
-  console.log(`${drinkName}, ${ice}, ${sugar}`)
+  const drinkName = alphaPos.getCheckedValue("drink");
+  const ice = alphaPos.getCheckedValue("ice");
+  const sugar = alphaPos.getCheckedValue("sugar");
+  console.log(`${drinkName}, ${ice}, ${sugar}`);
   // 2. 如果沒有選擇飲料的話，跳出提示視窗
-  if(!drinkName){
-    alert(`Please select at least one item.`)
-    return
+  if (!drinkName) {
+    alert(`Please select at least one item.`);
+    return;
   }
   // 3. 建立飲料instance, 並取得飲料價格
-  const drink = new Drink(drinkName, ice, sugar)
-  console.log(drink)
-  console.log(drink.price())
+  const drink = new Drink(drinkName, ice, sugar);
+  console.log(drink);
+  console.log(drink.price());
   // 4. 將飲料實例產生成左側訂單區的畫面
+  alphaPos.addDrink(drink);
 });
-
-
