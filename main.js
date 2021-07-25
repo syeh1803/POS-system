@@ -93,5 +93,6 @@ orderLists.addEventListener("click", function (event) {
     if (!isDeleteButton){
         return
     }
-    console.log('do something...')
+    // get card element
+    console.log(event.target.parentElement.parentElement.parentElement)
 });
