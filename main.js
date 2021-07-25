@@ -19,8 +19,18 @@ addDrinkButton.addEventListener("click", function () {
   // 利用input裡的checked是否為true，來檢查店員是否選到該品項
   let allDrinksOptions = document.querySelectorAll('input[name="drink"]');
   allDrinksOptions.forEach((option) => {
-      console.log(`${option.value}: ${option.checked}`)
-  })
+    console.log(`${option.value}: ${option.checked}`);
+  });
+
+  let allIceOptions = document.querySelectorAll('input[name="ice"]');
+  allIceOptions.forEach((option) => {
+    console.log(`${option.value}: ${option.checked}`);
+  });
+
+  let allSugarOptions = document.querySelectorAll('input[name="sugar"]');
+  allSugarOptions.forEach((option) => {
+    console.log(`${option.value}: ${option.checked}`);
+  });
 });
 
 // price methods: get price according to the drink
