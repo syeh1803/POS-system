@@ -66,6 +66,10 @@ AlphaPos.prototype.addDrink = function (drink) {
   orderLists.insertAdjacentHTML("afterbegin", orderListsCard);
 };
 
+AlphaPos.prototype.deleteDrink = function (target) {
+  target.remove();
+};
+
 addDrinkButton.addEventListener("click", function () {
   // 1. 取得選擇的飲料名稱, 冰塊, 甜度
   // 利用input裡的checked是否為true，來檢查店員是否選到該品項
@@ -87,12 +91,10 @@ addDrinkButton.addEventListener("click", function () {
 });
 
 orderLists.addEventListener("click", function (event) {
-    let isDeleteButton = event.target.matches(
-      '[data-alpha-pos="delete-drink"]'
-    );
-    if (!isDeleteButton){
-        return
-    }
-    // get card element
-    console.log(event.target.parentElement.parentElement.parentElement)
+  let isDeleteButton = event.target.matches('[data-alpha-pos="delete-drink"]');
+  if (!isDeleteButton) {
+    return;
+  }
+  // get card element
+  alphaPos.deleteDrink(event.target.parentElement.parentElement.parentElement)
 });
