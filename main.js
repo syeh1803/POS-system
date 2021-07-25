@@ -1,5 +1,7 @@
 // new AlphaPos instance
 const alphaPos = new AlphaPos();
+const addDrinkButton = document.querySelector('[data-alpha-pos="add-drink"]');
+const orderLists = document.querySelector("[data-order-lists]");
 
 // AlphaPos Constructor function - 放所有點餐機的功能
 function AlphaPos() {}
@@ -41,7 +43,6 @@ Drink.prototype.price = function () {
   }
 };
 
-const orderLists = document.querySelector("[data-order-lists]");
 AlphaPos.prototype.addDrink = function (drink) {
   let orderListsCard = `
                 <div class="card mb-3">
@@ -66,7 +67,6 @@ orderLists.insertAdjacentHTML("afterbegin", orderListsCard);
 };
 
 
-const addDrinkButton = document.querySelector('[data-alpha-pos="add-drink"]');
 addDrinkButton.addEventListener("click", function () {
   // 1. 取得選擇的飲料名稱, 冰塊, 甜度
   // 利用input裡的checked是否為true，來檢查店員是否選到該品項
@@ -86,3 +86,7 @@ addDrinkButton.addEventListener("click", function () {
   // 4. 將飲料實例產生成左側訂單區的畫面
   alphaPos.addDrink(drink);
 });
+
+orderLists.addEventListener('click', function(event){
+    console.log(event.target)
+})
