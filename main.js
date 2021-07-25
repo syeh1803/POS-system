@@ -10,6 +10,10 @@ addDrinkButton.addEventListener("click", function () {
   const sugar = alphaPos.getCheckedValue('sugar')
   console.log(`${drinkName}, ${ice}, ${sugar}`)
   // 2. 如果沒有選擇飲料的話，跳出提示視窗
+  if(!drinkName){
+    alert(`Please select at least one item.`)
+    return
+  }
   // 3. 建立飲料instance, 並取得飲料價格
   // 4. 將飲料實例產生成左側訂單區的畫面
 });
