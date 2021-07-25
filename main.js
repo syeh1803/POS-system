@@ -6,12 +6,21 @@ function Drink(name, sugar, ice) {
   this.ice = ice;
 }
 
+// AlphaPos Constructor function - 放所有點餐機的功能
+function AlphaPos() {}
+
 const addDrinkButton = document.querySelector('[data-alpha-pos="add-drink"]');
 addDrinkButton.addEventListener("click", function () {
   // 1. 取得選擇的飲料名稱, 冰塊, 甜度
   // 2. 如果沒有選擇飲料的話，跳出提示視窗
   // 3. 建立飲料instance, 並取得飲料價格
   // 4. 將飲料實例產生成左側訂單區的畫面
+
+  // 利用input裡的checked是否為true，來檢查店員是否選到該品項
+  let allDrinksOptions = document.querySelectorAll('input[name="drink"]');
+  allDrinksOptions.forEach((option) => {
+      console.log(`${option.value}: ${option.checked}`)
+  })
 });
 
 // price methods: get price according to the drink
