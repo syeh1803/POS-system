@@ -6,8 +6,13 @@ function Drink(name, sugar, ice) {
   this.ice = ice;
 }
 
-let bubbleMilkTea = new Drink("Bubble Milk Tea", "No Sugar", "Less Ice");
-console.log(bubbleMilkTea);
+const addDrinkButton = document.querySelector('[data-alpha-pos="add-drink"]');
+addDrinkButton.addEventListener("click", function () {
+  // 1. 取得選擇的飲料名稱, 冰塊, 甜度
+  // 2. 如果沒有選擇飲料的話，跳出提示視窗
+  // 3. 建立飲料instance, 並取得飲料價格
+  // 4. 將飲料實例產生成左側訂單區的畫面
+});
 
 // price methods: get price according to the drink
 
@@ -28,15 +33,3 @@ Drink.prototype.price = function () {
       alert("This drink does not exist.");
   }
 };
-
-let blackTea = new Drink ('Black Tea', 'Half Sugar', 'No Ice')
-console.log(blackTea)
-console.log(blackTea.price())
-
-let lemonGreenTea = new Drink ('Lemon Green Tea', 'No Sugar', 'Less Ice')
-console.log(lemonGreenTea);
-console.log(lemonGreenTea.price());
-
-let matchaLatte = new Drink ('Matcha Latte', 'Less Sugar', 'Regular Ice')
-console.log(matchaLatte);
-console.log(matchaLatte.price());
