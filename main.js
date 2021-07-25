@@ -63,9 +63,8 @@ AlphaPos.prototype.addDrink = function (drink) {
                     </div>
                 </div>
 `;
-orderLists.insertAdjacentHTML("afterbegin", orderListsCard);
+  orderLists.insertAdjacentHTML("afterbegin", orderListsCard);
 };
-
 
 addDrinkButton.addEventListener("click", function () {
   // 1. 取得選擇的飲料名稱, 冰塊, 甜度
@@ -87,6 +86,12 @@ addDrinkButton.addEventListener("click", function () {
   alphaPos.addDrink(drink);
 });
 
-orderLists.addEventListener('click', function(event){
-    console.log(event.target)
-})
+orderLists.addEventListener("click", function (event) {
+    let isDeleteButton = event.target.matches(
+      '[data-alpha-pos="delete-drink"]'
+    );
+    if (!isDeleteButton){
+        return
+    }
+    console.log('do something...')
+});
