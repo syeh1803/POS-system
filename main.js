@@ -80,6 +80,12 @@ AlphaPos.prototype.checkout = function () {
   return totalAmount
 };
 
+AlphaPos.prototype.clearOrder = function (target) {
+    target.querySelectorAll('.card').forEach((card) => {
+        card.remove()
+    })
+}
+
 addDrinkButton.addEventListener("click", function () {
   // 1. 取得選擇的飲料名稱, 冰塊, 甜度
   // 利用input裡的checked是否為true，來檢查店員是否選到該品項
@@ -113,4 +119,5 @@ checkoutButton.addEventListener("click", function () {
   // 1. 計算訂單總金額
   alert(`Total amount of drinks: $${alphaPos.checkout()}`)
   // 2. 清空訂單
+  alphaPos.clearOrder(orderLists);
 });
