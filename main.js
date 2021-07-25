@@ -59,7 +59,7 @@ AlphaPos.prototype.addDrink = function (drink) {
                     </div>
                     <div class="card-footer text-right py-2">
                         <div class="card-text text-muted">
-                            $<span data-drink-price>30</span>
+                            $<span data-drink-price>${drink.price()}</span>
                         </div>
                     </div>
                 </div>
@@ -72,10 +72,12 @@ AlphaPos.prototype.deleteDrink = function (target) {
 };
 
 AlphaPos.prototype.checkout = function () {
+  let totalAmount = 0;
+  // 取出所有價格
   document.querySelectorAll("[data-drink-price]").forEach((drink) => {
-    console.log(drink);
-    console.log(drink.textContent);
+    totalAmount += Number(drink.textContent)
   });
+  return totalAmount
 };
 
 addDrinkButton.addEventListener("click", function () {
@@ -109,6 +111,6 @@ orderLists.addEventListener("click", function (event) {
 
 checkoutButton.addEventListener("click", function () {
   // 1. 計算訂單總金額
-  alphaPos.checkout();
+  alert(`Total amount of drinks: $${alphaPos.checkout()}`)
   // 2. 清空訂單
 });
