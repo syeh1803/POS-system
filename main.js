@@ -2,6 +2,7 @@
 const alphaPos = new AlphaPos();
 const addDrinkButton = document.querySelector('[data-alpha-pos="add-drink"]');
 const orderLists = document.querySelector("[data-order-lists]");
+const checkoutButton = document.querySelector('[data-alpha-pos="checkout"]');
 
 // AlphaPos Constructor function - 放所有點餐機的功能
 function AlphaPos() {}
@@ -70,6 +71,13 @@ AlphaPos.prototype.deleteDrink = function (target) {
   target.remove();
 };
 
+AlphaPos.prototype.checkout = function () {
+  document.querySelectorAll("[data-drink-price]").forEach((drink) => {
+    console.log(drink);
+    console.log(drink.textContent);
+  });
+};
+
 addDrinkButton.addEventListener("click", function () {
   // 1. 取得選擇的飲料名稱, 冰塊, 甜度
   // 利用input裡的checked是否為true，來檢查店員是否選到該品項
@@ -96,5 +104,11 @@ orderLists.addEventListener("click", function (event) {
     return;
   }
   // get card element
-  alphaPos.deleteDrink(event.target.parentElement.parentElement.parentElement)
+  alphaPos.deleteDrink(event.target.parentElement.parentElement.parentElement);
+});
+
+checkoutButton.addEventListener("click", function () {
+  // 1. 計算訂單總金額
+  alphaPos.checkout();
+  // 2. 清空訂單
 });
