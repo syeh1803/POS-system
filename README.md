@@ -1,5 +1,5 @@
 # POS system
-A simple and convenient POS system
+A simple and convenient POS system (coding practice)
 
 ## Features
 - Order drinks for customers by clicking the items
