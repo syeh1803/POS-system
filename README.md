@@ -2,7 +2,7 @@
 A simple and convenient POS system
 
 ## Features
-- Order drinks for customers by clicking the names
+- Order drinks for customers by clicking the items
 - Different options of Ice and Sugar
 - Add the items to the checkout section
 - Remove drinks from the screen
