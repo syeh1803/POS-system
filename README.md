@@ -8,4 +8,4 @@ A simple and convenient POS system
 - Remove drinks from the screen
 - Scrollbar for the checkout section
 - Click the checkout button - a window pops up to confirm the amount
-- Clear the order(s) after checking out
+- Automatically Clear the order(s) after checking out
